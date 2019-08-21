@@ -5,7 +5,7 @@
  * @Author: dada
  * @Date: 2019-08-20 15:09:50
  * @LastEditors: dada
- * @LastEditTime: 2019-08-21 11:04:05
+ * @LastEditTime: 2019-08-21 11:03:13
  */
 'use strict';
 const path = require('path');
@@ -42,10 +42,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // UglifyJs do not support ES6+, you can also use babel-minify for better treeshaking: https://github.com/babel/minify
     new webpack.optimize.UglifyJsPlugin({
-      //删除注释
-      output: {
-        comments: false
-      },
       compress: {
         warnings: false,
         drop_debugger: true,
