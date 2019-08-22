@@ -9,12 +9,7 @@
     <img src="../assets/image/keyhappine2.png" class="key" alt="img" />
     <p class="record-title">说出您的幸福关键词</p>
     <div class="combined_main">
-      <img
-        src="../assets/image/Line2.png"
-        class="line"
-        v-show="!isTouch"
-        alt=""
-      />
+      <img src="../assets/image/bo.png" class="line" v-show="!isTouch" alt="" />
       <img
         src="../assets/image/audio.gif"
         class="gif"
@@ -23,13 +18,13 @@
       />
     </div>
     <!-- <img src="../assets/image/combined.png" class="combined_main" alt="img"> -->
-    <div
-      class="home-check__box"
-      :class="isTouch ? 'active' : ''"
-      @touchstart="touchStart"
-      @touchend="touchEnd"
-    >
-      <div class="check-main"></div>
+    <div class="home-check__box" :class="isTouch ? 'active' : ''">
+      <div
+        class="check-main"
+        @touchstart="touchStart"
+        @touchend="touchEnd"
+        :class="isEnd ? 'active' : ''"
+      ></div>
     </div>
     <span class="check">{{ isTouch ? '松开完成录入' : '长按录入' }}</span>
     <img src="../assets/image/home_top.png" class="home_bg" alt="img" />
@@ -54,7 +49,8 @@ export default {
     return {
       isTouch: false,
       statTime: 0,
-      endTime: 0
+      endTime: 0,
+      isEnd: false
     }
   },
   methods: {
@@ -66,7 +62,8 @@ export default {
       this.isTouch = false
       this.endTime = new Date().getTime()
       let time = this.endTime - this.statTime
-      if (time > 1000) {
+      if (time >= 1000) {
+        this.isEnd = true
         setTimeout(() => {
           this.$router.push({
             name: 'Success'
@@ -121,7 +118,7 @@ export default {
     left: 16px;
   }
   .record-title {
-    width: 324px;
+    // width: 324px;
     height: 50px;
     font-size: 36px;
     font-family: PingFangSC-Medium;
@@ -148,9 +145,9 @@ export default {
     height: 608px;
   }
   .line {
-    width: 300px;
-    height: 300px;
-    margin-top: -50px;
+    width: 404px;
+    height: 404px;
+    margin-top: -90px;
   }
   .home-check__box {
     height: 200px;
@@ -195,6 +192,10 @@ export default {
     width: 100%;
     height: 100%;
     background: url('../assets/image/record.png') no-repeat center/cover;
+    &.active {
+      pointer-events: none;
+      touch-action: none;
+    }
   }
   .check {
     width: 200px;

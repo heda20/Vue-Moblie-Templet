@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @version: 0.0.1
+ * @Company: Puredo
+ * @Author: dada
+ * @Date: 2019-08-09 10:52:11
+ * @LastEditors: dada
+ * @LastEditTime: 2019-08-09 11:12:16
+ -->
 <template>
   <div class="success">
     <!-- <img src="../assets/image/top_bg.png" class='home-top' alt="img"> -->
@@ -15,11 +24,14 @@
       />
       <span class="success-hinit">恭喜您，签到成功！</span>
     </div>
-    <!-- <img src="../assets/image/combined.png" class="combined_main" alt="img"> -->
-    <div class="home-check__box" @touchstart="touchStart" @touchend="touchEnd">
-      <div class="check-main" :class="isTouch ? 'active' : ''"></div>
-      <span class="success_btn">点击领取签到礼品</span>
+    <div class="home-check__box">
+      <span>长按二维码关注公众号</span>
+      <p>领取签到礼品</p>
     </div>
+    <div class="receive_btn" @click="goToRecord">
+      已关注&nbsp;点击领取礼品
+    </div>
+    <img src="../assets/image/qr_code.png" class="code" alt="code" />
     <img src="../assets/image/home_top.png" class="home_bg" alt="img" />
   </div>
 </template>
@@ -39,13 +51,15 @@ export default {
       this.isTouch = true
       this.statTime = new Date().getTime()
     },
-    touchEnd() {
+    goToRecord() {
       setTimeout(() => {
         this.isTouch = false
         this.$router.push({
           name: 'Receive'
         })
-      }, 1500)
+        // window.location.href =
+        //   'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg4MzE2MjE5MQ==&scene=124#wechat_redirect'
+      }, 1000)
     }
   },
   components: {}
@@ -108,7 +122,7 @@ export default {
     height: 352px;
     position: absolute;
     left: 116px;
-    top: 226px;
+    top: 176px;
     background: url('../assets/image/success_bg.png') no-repeat center/cover;
     display: flex;
     flex-direction: column;
@@ -125,22 +139,16 @@ export default {
     margin-bottom: 34px;
     pointer-events: none;
   }
-  .success_btn {
+
+  .code {
+    width: 250px;
+    height: 250px;
     position: absolute;
-    width: 286px;
-    height: 58px;
-    background: url('../assets/image/success_btn.png') no-repeat center/cover;
-    top: 50%;
-    left: 50%;
-    transform: translate(-45%, -50%);
-    font-size: 32px;
-    font-family: PingFangSC-Medium;
-    font-weight: 500;
-    color: rgba(255, 213, 127, 1);
-    line-height: 58px;
+    left: 250px;
+    top: 593px;
   }
   .success-hinit {
-    width: 288px;
+    // width: 288px;
     height: 45px;
     font-size: 32px;
     font-family: PingFangSC-Medium;
@@ -150,10 +158,18 @@ export default {
   }
   .home-check__box {
     height: 200px;
-    width: 200px;
     position: absolute;
-    top: 734px;
-    left: 276px;
+    top: 834px;
+    left: 235px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 28px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255, 213, 127, 1);
+    line-height: 40px;
+    text-align: center;
   }
 
   .check-main {
@@ -176,6 +192,23 @@ export default {
     font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(255, 213, 127, 1);
+  }
+  .receive_btn {
+    height: 100px;
+    min-width: 400px;
+    line-height: 100px;
+    font-size: 32px;
+    font-weight: 500;
+    color: rgba(255, 213, 127, 1);
+    line-height: 100px;
+    text-align: center;
+    border-radius: 100px;
+    position: absolute;
+    top: 1000px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('../assets/image/btn_2.png') no-repeat center;
+    background-size: 100%;
   }
   .home_bg {
     position: absolute;

@@ -112,7 +112,7 @@ export default {
     background: url('../assets/image/gift.png') no-repeat center/cover;
   }
   .gift_text {
-    width: 320px;
+    // width: 320px;
     height: 168px;
     font-size: 32px;
     font-family: PingFangSC-Medium;

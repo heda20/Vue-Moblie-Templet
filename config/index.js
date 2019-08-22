@@ -1,25 +1,32 @@
+/*
+ * @Description:
+ * @version: 0.0.1
+ * @Company: Puredo
+ * @Author: dada
+ * @Date: 2019-08-09 10:52:11
+ * @LastEditors: dada
+ * @LastEditTime: 2019-08-09 14:13:48
+ */
 'use strict'
 // Template version: 1.2.4
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
 module.exports = {
     dev: {
-
         // Paths
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: '127.0.0.1',
-                changeOrigin: true,
+                target: 'https://vote.hlfengxing.com/api/wx/sign',
+                changeOrigin: true
             }
         },
 
         // Various Dev Server settings
         host: 'localhost', // can be overwritten by process.env.HOST
-        port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+        port: 3000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: true,
         errorOverlay: true,
         notifyOnErrors: true,
@@ -50,7 +57,7 @@ module.exports = {
         // (https://github.com/webpack/css-loader#sourcemaps)
         // In our experience, they generally work as expected,
         // just be aware of this issue when enabling this option.
-        cssSourceMap: false,
+        cssSourceMap: false
     },
 
     build: {

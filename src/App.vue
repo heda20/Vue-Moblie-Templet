@@ -5,9 +5,16 @@
 </template>
 
 <script>
+import mixin from '@/mixins/mixin.js'
 export default {
-  name: 'app'
-};
+  name: 'App',
+  components: {},
+  mixins: [mixin],
+  created() {
+    this.getJssdkInfo()
+  },
+  methods: {}
+}
 </script>
 
 <style lang="less">

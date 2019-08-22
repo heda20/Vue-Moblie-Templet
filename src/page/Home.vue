@@ -1,23 +1,64 @@
+<!--
+ * @Description: 
+ * @version: 0.0.1
+ * @Company: Puredo
+ * @Author: dada
+ * @Date: 2019-08-09 10:52:11
+ * @LastEditors: dada
+ * @LastEditTime: 2019-08-09 11:04:56
+ -->
 <template>
   <div class="container">
-    <img src="../assets/image/home_top.png" class="home-top" alt="img" />
+    <img
+      src="../assets/image/home_top.png"
+      class="home-top"
+      alt="img"
+    />
     <div class="top_left">
-      <img src="../assets/image/Triangle2.png" alt="img" />
-      <img src="../assets/image/happiness2.png" alt="img" />
+      <img
+        src="../assets/image/Triangle2.png"
+        alt="img"
+      />
+      <img
+        src="../assets/image/happiness2.png"
+        alt="img"
+      />
     </div>
-    <img src="../assets/image/home_right.png" class="home_right" alt="img" />
-    <img src="../assets/image/keyhappine2.png" class="key" alt="img" />
-    <img src="../assets/image/logo2.png" class="logo" alt="img" />
+    <img
+      src="../assets/image/home_right.png"
+      class="home_right"
+      alt="img"
+    />
+    <img
+      src="../assets/image/keyhappine2.png"
+      class="key"
+      alt="img"
+    />
+    <img
+      src="../assets/image/logo2.png"
+      class="logo"
+      alt="img"
+    />
     <img
       src="../assets/image/happiness_main.png"
       class="happiness_main"
       alt="img"
     />
-    <div class="home-check__box" @click="goRecord">
-      <div class="check-main" :class="isClick ? 'active' : ''"></div>
+    <div
+      class="home-check__box"
+      @click="goRecord"
+    >
+      <div
+        class="check-main"
+        :class="isClick ? 'active' : ''"
+      ></div>
       <span class="check">点击签到</span>
     </div>
-    <img src="../assets/image/home_bottom.png" class="home_bg" alt="img" />
+    <img
+      src="../assets/image/home_bottom.png"
+      class="home_bg"
+      alt="img"
+    />
     <img
       src="../assets/image/happiness_test.png"
       class="bottom_left"
@@ -37,22 +78,21 @@ export default {
   data() {
     return {
       isClick: false
-    }
+    };
   },
   methods: {
     goRecord() {
-      this.isClick = true
+      this.isClick = true;
       setTimeout(() => {
         this.$router.push({
           name: 'Record'
-        })
-      }, 1000)
-      //   window.location.href =
-      //     'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUzMDM3MjMyMQ==#www.baidu.com'
+        });
+      }, 1000);
+      //
     }
   },
   components: {}
-}
+};
 </script>
 
 <style lang="less" scoped>
